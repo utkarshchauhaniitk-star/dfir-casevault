@@ -1,0 +1,23 @@
+{
+  "agent_id": "AGT-8842-NIGHTSHADE",
+  "build_version": "v3.1.4-obf",
+  "command_and_control": {
+    "primary_host": "malicious-c2-update.xyz",
+    "backup_host": "backup-relay.darkthreats.top",
+    "fallback_ip": "198.51.100.45",
+    "port": 8443,
+    "ssl_pinned_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "beacon_settings": {
+    "sleep_interval_sec": 60,
+    "jitter_pct": 20,
+    "kill_date": "2026-12-31T23:59:59Z"
+  },
+  "modules": [
+    "memory_dump",
+    "sam_harvest",
+    "kerberoast",
+    "s3_data_exfiltration"
+  ],
+  "exfil_target_url": "https://drop.cloudstorage-exfil.xyz/v1/upload"
+}

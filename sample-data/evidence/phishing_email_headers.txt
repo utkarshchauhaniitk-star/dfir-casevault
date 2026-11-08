@@ -1,0 +1,20 @@
+Delivered-To: executive.cfo@enterprise-corp.com
+Received: by 2002:a05:6e02:18c4:0:0:0:0 with SMTP id v4csp129841
+Return-Path: <security-alerts@account-security-update.online>
+Received-SPF: pass (google.com: domain of security-alerts@account-security-update.online designates 192.0.2.77 as permitted sender)
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@account-security-update.online;
+       spf=pass smtp.mailfrom=security-alerts@account-security-update.online
+From: "IT Support & Security Desk" <support@account-security-update.online>
+To: executive.cfo@enterprise-corp.com
+Subject: URGENT: Mandatory Corporate Security Verification Required Within 24 Hours
+Date: Thu, 15 Oct 2026 09:14:22 +0000
+Message-ID: <8947239842.20261015@account-security-update.online>
+
+Dear Executive,
+Our automated zero-trust monitoring detected an anomalous login attempt to your Microsoft 365 identity.
+To prevent account termination, verify your credentials immediately at:
+https://portal-verification-service.top/auth/sso/login?ref=cfo_token_88921
+
+Contact security officer at: incident-response-desk@darkthreats.top
+Hash of authentication policy: a1b2c3d4e5f60718293a4b5c6d7e8f90123456789abcdef0123456789abcdef0

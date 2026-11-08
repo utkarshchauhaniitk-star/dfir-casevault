@@ -1,0 +1,36 @@
+services:
+  # Backend FastAPI API Service
+  - type: web
+    name: dfir-casevault-api
+    runtime: python
+    buildCommand: "pip install -r backend/requirements.txt"
+    startCommand: "cd backend && uvicorn app.main:app --host 0.0.0.0 --port $PORT"
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.12.9
+      - key: ENVIRONMENT
+        value: production
+      - key: DEBUG
+        value: false
+      - key: DATABASE_URL
+        fromDatabase:
+          name: dfir-casevault-db
+          property: connectionString
+      - key: EVIDENCE_STORAGE_DIR
+        value: /var/data/evidence_storage
+      - key: MAX_UPLOAD_SIZE_BYTES
+        value: 26214400
+      - key: ALLOWED_ORIGINS
+        value: "https://dfir-casevault.vercel.app"
+      - key: SECRET_KEY
+        generateValue: true
+    disk:
+      name: evidence-vault-storage
+      mountPath: /var/data
+      sizeGB: 10
+
+databases:
+  - name: dfir-casevault-db
+    plan: free
+    databaseName: casevault
+    user: casevault_admin

