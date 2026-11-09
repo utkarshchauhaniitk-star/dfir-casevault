@@ -3,7 +3,7 @@
 <div align="center">
 
 ![DFIR CaseVault Banner](https://img.shields.io/badge/Security-Digital_Forensics_%26_Incident_Response-0f172a?style=for-the-badge&logo=shield&logoColor=3b82f6)
-![Build Status](https://img.shields.io/badge/Tests-8%20Passed%20(100%25)-emerald?style=for-the-badge&logo=pytest&logoColor=white)
+![Build Status](https://img.shields.io/badge/Tests-9%20Passed%20(100%25)-emerald?style=for-the-badge&logo=pytest&logoColor=white)
 ![FastAPI](https://img.shields.io/badge/Backend-FastAPI_0.115-009688?style=for-the-badge&logo=fastapi&logoColor=white)
 ![React](https://img.shields.io/badge/Frontend-React_18_%7C_Vite_%7C_TypeScript-61dafb?style=for-the-badge&logo=react&logoColor=black)
 ![License](https://img.shields.io/badge/License-MIT-blue?style=for-the-badge)
@@ -206,16 +206,17 @@ PYTHONPATH=backend backend/.venv/bin/pytest backend/tests -v
 
 ### Verification Results
 ```
-backend/tests/test_api.py::test_health_check PASSED                      [ 12%]
-backend/tests/test_api.py::test_dashboard_stats_empty_or_valid PASSED    [ 25%]
-backend/tests/test_api.py::test_case_lifecycle PASSED                    [ 37%]
-backend/tests/test_api.py::test_evidence_ingest_and_integrity_verification PASSED [ 50%]
-backend/tests/test_api.py::test_missing_evidence_file_handling PASSED    [ 62%]
-backend/tests/test_api.py::test_forensic_artifact_analysis_and_iocs PASSED [ 75%]
-backend/tests/test_api.py::test_investigation_notes_and_timeline PASSED  [ 87%]
-backend/tests/test_api.py::test_pdf_report_generation PASSED             [100%]
+backend/tests/test_api.py::test_health_check PASSED                      [ 11%]
+backend/tests/test_api.py::test_dashboard_stats_empty_or_valid PASSED    [ 22%]
+backend/tests/test_api.py::test_case_lifecycle PASSED                    [ 33%]
+backend/tests/test_api.py::test_evidence_ingest_and_integrity_verification PASSED [ 44%]
+backend/tests/test_api.py::test_missing_evidence_file_handling PASSED    [ 55%]
+backend/tests/test_api.py::test_forensic_artifact_analysis_and_iocs PASSED [ 66%]
+backend/tests/test_api.py::test_investigation_notes_and_timeline PASSED  [ 77%]
+backend/tests/test_api.py::test_pdf_report_generation PASSED             [ 88%]
+backend/tests/test_api.py::test_security_path_traversal_and_sanitization PASSED [100%]
 
-========================= 8 passed in 0.12s =========================
+========================= 9 passed in 0.13s =========================
 ```
 
 ### Frontend Production Build

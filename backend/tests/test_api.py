@@ -236,3 +236,47 @@ def test_pdf_report_generation(client, test_storage):
     assert dl_res.status_code == 200
     assert dl_res.headers["content-type"] == "application/pdf"
     assert dl_res.content.startswith(b"%PDF")
+
+def test_security_path_traversal_and_sanitization(client, test_storage):
+    from fastapi import HTTPException
+    from app.core.security import resolve_safe_storage_path, sanitize_filename
+
+    # 1. Direct path traversal attempt rejection
+    with pytest.raises(HTTPException) as exc_info:
+        resolve_safe_storage_path("../../etc/passwd")
+    assert exc_info.value.status_code == 400
+    assert "illegal path traversal" in exc_info.value.detail
+
+    # 2. Filename sanitization strips relative directory paths
+    sanitized = sanitize_filename("../../../etc/shadow")
+    assert sanitized == "shadow"
+    assert "/" not in sanitized
+    assert ".." not in sanitized
+
+    # 3. Traversal attack via upload endpoint is safely sanitized and contained
+    case_res = client.post("/api/cases", json={
+        "title": "Security Defense Test Case",
+        "description": "Verifying that path traversal filenames cannot escape storage.",
+        "incident_type": "Other",
+        "priority": "Low"
+    })
+    case_id = case_res.json()["case_id"]
+
+    upload_res = client.post(
+        f"/api/cases/{case_id}/evidence",
+        data={"collection_source": "Adversary Upload Test", "investigator": "Security QA"},
+        files={"file": ("../../../../tmp/exploit.bin", io.BytesIO(b"safe_test_bytes"), "application/octet-stream")}
+    )
+    assert upload_res.status_code == 201
+    ev_data = upload_res.json()
+
+    # Stored filename must not have directory traversal
+    assert "/" not in ev_data["stored_filename"]
+    assert "\\" not in ev_data["stored_filename"]
+    assert ".." not in ev_data["stored_filename"]
+
+    # Resolved storage path must remain strictly within evidence storage dir
+    resolved_path = resolve_safe_storage_path(ev_data["stored_filename"])
+    assert resolved_path.is_relative_to(Path(settings.EVIDENCE_STORAGE_DIR).resolve())
+    assert resolved_path.exists()
+
