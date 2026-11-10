@@ -12,7 +12,7 @@
 
 *A digital forensics and incident response platform featuring case management, evidence tracking, cryptographic SHA-256 integrity verification, append-only chain-of-custody records, safe artifact analysis, multi-source timeline reconstruction, and PDF dossier generation.*
 
-[Live Architecture](#system-architecture) • [Core Capabilities](#core-capabilities) • [Quickstart Guide](#quickstart-guide) • [Forensic Workflows](#forensic-workflows) • [Testing](#test-suite--quality-control) • [Deployment](#production-deployment)
+[Live Architecture](#system-architecture) • [Core Capabilities](#core-capabilities) • [Screenshots](#application-screenshots) • [Quickstart Guide](#quickstart-guide) • [Forensic Workflows](#forensic-workflows) • [Testing](#test-suite--quality-control) • [Deployment](#production-deployment)
 
 </div>
 
@@ -121,7 +121,8 @@ dfir-casevault/
 ├── docs/
 │   ├── ARCHITECTURE.md       # Detailed technical design document
 │   ├── API_DOCUMENTATION.md  # Complete REST API specification
-│   └── DEPLOYMENT_GUIDE.md   # Production deployment manual (Render + Vercel)
+│   ├── DEPLOYMENT_GUIDE.md   # Production deployment manual (Render + Vercel)
+│   └── screenshots/          # Application interface screenshots
 ├── .gitignore                # Excludes DB, evidence, venv, node_modules
 ├── render.yaml               # Render Cloud Blueprint
 ├── LICENSE                   # MIT License
@@ -225,6 +226,50 @@ cd frontend
 npm run build
 ```
 Builds production-minified bundles with chunk splitting in under 1.5 seconds.
+
+---
+
+## Application Screenshots
+
+### Forensic Operations Dashboard
+> Unified forensic posture view featuring active case counts, evidence metrics, integrity check status, and recent investigation activity.
+![Forensic Operations Dashboard](docs/screenshots/dashboard.png)
+
+---
+
+### Incident Case Management
+> Comprehensive incident repository with classification filtering (Ransomware, Phishing, Exfiltration), priority tiers, and assigned investigators.
+![Case Management](docs/screenshots/cases.png)
+
+---
+
+### Unified Case Investigation Workspace
+> Case dossier uniting associated evidence, on-demand SHA-256 integrity audits, investigator chronology notes, and PDF dossier triggers.
+![Case Detail](docs/screenshots/case-detail.png)
+
+---
+
+### Secure Evidence Vault & Cryptographic Verification
+> Multi-format evidence tracking, streaming SHA-256 hash baselines, on-demand byte-level tamper verification, and append-only custody logging.
+![Evidence Vault](docs/screenshots/evidence.png)
+
+---
+
+### Forensic Artifact Analysis & IOC Extraction
+> Safe, non-executing inspection of raw system logs, CSVs, JSON, PDF metadata, and regex-extracted Indicators of Compromise (IPs, domains, hashes).
+![Artifact Analysis](docs/screenshots/analysis.png)
+
+---
+
+### Multi-Source Chronological Timeline
+> Incident timeline reconstructing case creation, evidence ingests, integrity audit checks, custody transfers, and investigator milestones.
+![Chronological Timeline](docs/screenshots/timeline.png)
+
+---
+
+### Forensic Dossier & PDF Reports
+> ReportLab-generated publication-ready forensic dossiers featuring running headers, dynamic NumberedCanvas page numbering, and one-click PDF downloads.
+![Forensic Reports](docs/screenshots/reports.png)
 
 ---
 
